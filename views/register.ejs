@@ -1,0 +1,80 @@
+<%- include('partials/header') %>
+<div class="container mt-5">
+  <h1>Register</h1>
+  <% if(typeof alert !='undefined'){ %>
+    <% alert.forEach(function(error){%>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= error.msg %></strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times; </span>
+        </button>
+        
+      </div>
+    <%})%>
+  <%}%>
+  <% if(typeof error!='undefined'){%>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong><%= error %></strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times; </span>
+    </button>
+    
+  </div>
+  <%}%>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /register route -->
+          <form action="/register" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text"  name="internname" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="college">College</label>
+              <input type="text" class="form-control" name="college" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Conatact no</label>
+              <input type="tel" class="form-control" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="domain">Domain</label>
+              <input type="text" class="form-control" name="domain" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="confirm password"> Confirm Password</label>
+              <input type="password" class="form-control" name="confirmpassword" required>
+            </div>
+            <button type="submit" class="btn btn-dark">Register</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-sm-4">
+      <div class="card social-block">
+        <div class="card-body">
+          <a class="btn btn-block" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign Up with Google
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</div>
+
+<%- include('partials/header') %>
